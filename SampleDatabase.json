@@ -1,0 +1,32 @@
+{
+  "ParkingSpaces" : {
+    "ParkingSpace1321UID" : {
+      "Location" : {
+        "Longitude" : "1234",
+        "Latitude": "5678"
+      },
+      "Reviews" : {
+        "Review 1" : {
+          "User": "username",
+          "ReviewText": "great spot!"
+        },
+        "Review 2" : {
+          "User": "username",
+          "ReviewText": "great spot!"
+        }
+      },
+
+      "Owner:": "userid",
+      "CurrentUser": "userid"
+
+    }
+  },
+
+  "Users" : {
+    "userid1": {
+      "UserName": "bestuser1",
+      "PastParkingSpots": ["id1", "id2"],
+      "PastSpotsPosted": ["post1ID", "post2ID"]
+    }
+}
+}
