@@ -1,32 +1,27 @@
 {
   "ParkingSpaces" : {
     "ParkingSpace1321UID" : {
-      "Location" : {
-        "Longitude" : "1234",
-        "Latitude": "5678"
-      },
+      "CurrentUser" : "userid",
+      "Latitude" : 1234,
+      "Longitude" : 4567,
+      "Owner:" : "userid",
       "Reviews" : {
         "Review 1" : {
-          "User": "username",
-          "ReviewText": "great spot!"
+          "ReviewText" : "great spot!",
+          "User" : "username"
         },
         "Review 2" : {
-          "User": "username",
-          "ReviewText": "great spot!"
+          "ReviewText" : "great spot!",
+          "User" : "username"
         }
-      },
-
-      "Owner:": "userid",
-      "CurrentUser": "userid"
-
+      }
     }
   },
-
   "Users" : {
-    "userid1": {
-      "UserName": "bestuser1",
-      "PastParkingSpots": ["id1", "id2"],
-      "PastSpotsPosted": ["post1ID", "post2ID"]
+    "userid1" : {
+      "PastParkingSpots" : [ "id1", "id2" ],
+      "PastSpotsPosted" : [ "post1ID", "post2ID" ],
+      "UserName" : "bestuser1"
     }
-}
+  }
 }
