@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Listings from 'Listings';
+import Listings from './Listings';
 import logo from './logo.svg';
 import './App.css';
 
