@@ -19,9 +19,8 @@ class Listings extends Component {
         return (
             <div >
                 <ReactList
-                    data={this.state.allListings}
                     itemRenderer={this.renderItem}
-
+                    type='uniform'
                 />
             </div>
         );
@@ -31,6 +30,7 @@ class Listings extends Component {
         console.log('parking space ' + index);
         return (
             <div key={key}>
+                <text>hi</text>
                 <text>{this.state.allListings[index].Address}</text>
                 <text>{this.state.allListings[index].Description}</text>
             </div>
