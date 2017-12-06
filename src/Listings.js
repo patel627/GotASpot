@@ -19,7 +19,7 @@ class Listings extends Component {
         return (
             <div >
                 <ReactList
-                    itemRenderer={this.renderItem}
+                    itemRenderer={::this.renderItem}
                     type='uniform'
                 />
             </div>
