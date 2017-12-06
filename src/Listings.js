@@ -40,15 +40,17 @@ class Listings extends Component {
 
     refresh() {
         var spaces = firebase.database().ref("ParkingSpaces");
-        /*var i;
+        var i;
+        console.log('refresh');
         for (i = 0; i < spaces.length; i++) {
-            var curLat, curLong;
+            console.log(spaces[i].address);
+            /*var curLat, curLong;
             toLat = spaces[i].latitude;
             toLong = spaces[i].longitude;
             var distanceBetween = distanceFrom(toLat, toLong);
             spaces[i].time = distanceBetween.rows.elements.duration;
-            spaces[i].distance = distanceBetween.rows.elements.distance;
-        }*/
+            spaces[i].distance = distanceBetween.rows.elements.distance;*/
+        }
     }
 
     sortAllListings() {
