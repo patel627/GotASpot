@@ -51,7 +51,7 @@ class Listings extends Component {
             spaces[i].time = distanceBetween.rows.elements.duration;
             spaces[i].distance = distanceBetween.rows.elements.distance;*/
         }
-        allListings = spaces;
+        this.state.allListings = spaces;
     }
 
     sortAllListings() {
