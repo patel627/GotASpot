@@ -20,7 +20,7 @@ admin.initializeApp({
         // ...
         }),
     
-        firebase.auth().onAuthStateChanged(function(user) {
+      firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
           callback(user);
           } else {
@@ -32,14 +32,14 @@ admin.initializeApp({
       addSpot(user_hash, lat, long, owner, reviews) {
         admin.database().ref('Users').child('user_hash').once('value', function(fbdatasnap) {
           var exists = (fbdatasnap.val() !== null);
-          addEntryCB(user_hash, lat, long, owner, reviews, exists);
+          module.exports.addEntryCB(user_hash, lat, long, owner, reviews, exists);
         })
       },
     
       addEntryCB(user_hash, lat, long, owner, reviews, exists) {
         //if (exists == false) return;
         
-        var postsRef = admin.database().child("ParkingSpaces");
+        var postsRef = admin.database().ref("ParkingSpaces");
         
         var newPostRef = postsRef.push().set({
           CurrentUser: "N/A",
