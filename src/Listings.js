@@ -8,9 +8,9 @@ class Listings extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentLatitude:0,
-            currentLongitude:0,
-            allListings:[]
+            currentLatitude: 0,
+            currentLongitude: 0,
+            allListings: []
         };
         this.refresh();
     }
@@ -20,12 +20,18 @@ class Listings extends Component {
             <div >
                 <ReactList
                     data={this.state.allListings}
-                    renderItem={({ index, key }) =>
-                        <div>
-                            <text>{this.state.allListings[index].address}</text>
-                            <text>{this.state.allListings[index].description}</text>
-                        </div>}
+                    itemRenderer={this.renderItem}
+
                 />
+            </div>
+        );
+    }
+
+    renderItem(index, key) {
+        return (
+            <div key={key}>
+                <text>{this.state.allListings[index].address}</text>
+                <text>{this.state.allListings[index].description}</text>
             </div>
         );
     }
