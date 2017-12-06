@@ -1,13 +1,10 @@
-const admin = require('firebase-admin');
-const serviceAccount = require('./serviceAccountKey.json');
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: 'https://gotaspot-b1dcc.firebaseio.com/',
-  });
+
+const firebase = require("./firebaselogin.js");
 
   module.exports = {
-    getSpaceInfo(spaceUID) {
-        admin.database().ref(`/ParkingSpaces/${spaceUID}/`).once('value').then((fbdatasnap) => {
+    getSpaceInfo(spaceUID, callback) {
+      let parkingRef = firebase.database().ref('ParkingSpaces').child(spaceUID);
+      parkingRef.on('value', (fbdatasnap) => {
           callback(fbdatasnap.val());
         });
       },
@@ -18,7 +15,7 @@ admin.initializeApp({
             var errorCode = error.code;
             var errorMessage = error.message;
         // ...
-        });
+        }),
     
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
@@ -29,22 +26,22 @@ admin.initializeApp({
         });
       },
 
-      addSpot(user_hash, lat, long, owner, reviews) {
-        admin.database().child('Users').child('user_hash').once('value', function(fbdatasnap) {
+      addSpot(user_hash, title, lat, long, owner, reviews, exists){
+        firebase.database().ref('Users').child(user_hash).once('value', function(fbdatasnap) {
           var exists = (fbdatasnap.val() !== null);
-          addEntryCB(user_hash, notebook_uuid, _text, _image,
-            _caption, _dateCreated, _authorID, _tagArr, exists);
+          module.exports.addEntryCB(user_hash, title, lat, long, owner, reviews, exists);
         })
       },
     
-      addEntryCB(user_hash, lat, long, owner, reviews, exists) {
+      addEntryCB(user_hash, title, lat, long, owner, reviews, exists) {
+        console.log(exists);
         if (exists == false) return;
         
-        var postsRef = admin.database().child("ParkingSpaces");
+        var postsRef = firebase.database().ref("ParkingSpaces");
         
         var newPostRef = postsRef.push().set({
           CurrentUser: "N/A",
-          Title: "Road 1 Parking Space",
+          Title: title,
           Latitude: lat,
           Longitude: long,
           Owner: owner,
@@ -52,4 +49,9 @@ admin.initializeApp({
         });
       },
   }
+
+  //module.exports.addSpot("userid1", "Title", "4", "5", "john doe", ["good", "bad"]);
+  //module.exports.getSpaceInfo('f', function(data) { console.log(data);});
+
+
   
