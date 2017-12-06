@@ -17,7 +17,7 @@ class Listings extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+
         };
         init();
     }
@@ -28,17 +28,17 @@ class Listings extends Component {
     render() {
         return (
             <View style={styles.container}>
-            <FlatList
-              data = {allListings}
-              renderItem={({item}) => 
-              <Text style={styles.address}>{item.key}</Text>
-              <Text style={styles.description}>{item.description}</Text>}
-            />
-          </View>
+                <FlatList
+                    data={allListings}
+                    renderItem={({ item }) =>
+                        <Text style={styles.address}>{item.key}</Text>
+                        <Text style={styles.description}>{item.description}</Text>}
+                />
+            </View>
         );
     }
 
-    
+
     refresh() {
         var spaces = firebaseApp.database().ref("ParkingSpaces");
         var i;
@@ -77,13 +77,13 @@ class Listings extends Component {
 
 const styles = StyleSheet.create({
     container: {
-     flex: 1,
-     paddingTop: 22
+        flex: 1,
+        paddingTop: 22
     },
     address: {
-      padding: 10,
-      fontSize: 18,
-      height: 44,
+        padding: 10,
+        fontSize: 18,
+        height: 44,
     },
     description: {
         padding: 10,
@@ -91,6 +91,6 @@ const styles = StyleSheet.create({
         height: 44,
     },
 
-  })
+})
 
-  export default Listings;
+export default Listings;
