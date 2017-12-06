@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import Axios from 'axios';
 import ReactList from 'react-list';
-import { Listing } from './Listing';
+//import { Listing } from './Listing';
 const firebase = require("./firebaselogin.js");
 
 class Listings extends Component {
@@ -19,7 +19,7 @@ class Listings extends Component {
         return (
             <div >
                 <ReactList
-                    itemRenderer={::this.renderItem}
+                    itemRenderer={this.renderItem}
                     type='uniform'
                 />
             </div>
