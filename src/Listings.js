@@ -40,10 +40,10 @@ class Listings extends Component {
 
     refresh() {
         var spaces = firebase.database().ref("ParkingSpaces");
+        console.log('refresh');
         spaces.on("value", (datamap) => {
             this.state.allListings = Object.values(spaces);
             var i;
-            console.log('refresh');
             for (i = 0; i < this.state.allListings.length; i++) {
                 console.log(this.state.allListings[i].address);
                 
