@@ -1,14 +1,11 @@
-const admin = require('firebase-admin');
-const serviceAccount = require('./serviceAccountKey.json');
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: 'https://gotaspot-b1dcc.firebaseio.com/',
-  });
+
+const firebase = require("./firebaselogin.js");
 
   module.exports = {
     getSpaceInfo(spaceUID, callback) {
-        admin.database().ref(`/ParkingSpaces/${spaceUID}/`).once('value').then((fbdatasnap) => {
-          //console.log(fbdatasnap.val());
+      console.log(spaceUID);
+      let parkingRef = firebase.database().ref('ParkingSpaces').child(spaceUID);
+      parkingRef.on('value', (fbdatasnap) => {
           callback(fbdatasnap.val());
         });
       },
@@ -21,7 +18,7 @@ admin.initializeApp({
         // ...
         }),
     
-      firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
           callback(user);
           } else {
@@ -31,7 +28,7 @@ admin.initializeApp({
       },
 
       addSpot(user_hash, lat, long, owner, reviews) {
-        admin.database().ref('Users').child('user_hash').once('value', function(fbdatasnap) {
+        firebase.database().ref('Users').child('user_hash').once('value', function(fbdatasnap) {
           var exists = (fbdatasnap.val() !== null);
           module.exports.addEntryCB(user_hash, lat, long, owner, reviews, exists);
         })
@@ -40,7 +37,7 @@ admin.initializeApp({
       addEntryCB(user_hash, lat, long, owner, reviews, exists) {
         //if (exists == false) return;
         
-        var postsRef = admin.database().ref("ParkingSpaces");
+        var postsRef = firebase.database().ref("ParkingSpaces");
         
         var newPostRef = postsRef.push().set({
           CurrentUser: "N/A",
@@ -53,8 +50,8 @@ admin.initializeApp({
       },
   }
 
-  module.exports.addSpot("user", "4", "5", "mehul", ["good", "bad"]);
-  module.exports.getSpaceInfo("-L-dncqcyd5UD_arAK11", function(data) {
+  //module.exports.addSpot("user", "4", "5", "john doe", ["good", "bad"]);
+  module.exports.getSpaceInfo('-L-ds8orRwWWlNJ0INya', function(data) {
     console.log(data);
   });
 
