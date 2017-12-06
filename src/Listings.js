@@ -11,10 +11,6 @@ class Listings extends Component {
             currentLongitude:0,
             allListings:[]
         };
-        init();
-    }
-    init() {
-        refresh();
     }
 
     render() {
@@ -55,7 +51,7 @@ class Listings extends Component {
     }
 
     distanceFrom(destLatitude, destLongitude) {
-        distRequest = "https://maps.googleapis.com/maps/api/distancematrix/json?";
+        var distRequest = "https://maps.googleapis.com/maps/api/distancematrix/json?";
         var received = Axios.get(distRequest, {
             origins: this.state.currentLatitude + "," + this.state.currentLongitude,
             destinations: destLatitude + "," + destLongitude,
