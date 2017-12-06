@@ -31,8 +31,10 @@ class Listings extends Component {
                 <FlatList
                     data={allListings}
                     renderItem={({ item }) =>
-                        <Text style={styles.address}>{item.key}</Text>
-                        <Text style={styles.description}>{item.description}</Text>}
+                        <div>
+                            <Text style={styles.address}>{item.key}</Text>
+                            <Text style={styles.description}>{item.description}</Text>
+                        </div>}
                 />
             </View>
         );
