@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import Axios from 'axios';
-//import ReactList from 'react-list';
+import ReactList from 'react-list';
 import { Listing } from './Listing';
 const firebase = require("./firebaselogin.js");
 
@@ -22,8 +22,8 @@ class Listings extends Component {
                     data={this.state.allListings}
                     renderItem={({ index, key }) =>
                         <div>
-                            <Text style={styles.address}>{this.state.allListings[index].address}</Text>
-                            <Text style={styles.description}>{this.state.allListings[index].description}</Text>
+                            <text style={styles.address}>{this.state.allListings[index].address}</text>
+                            <text style={styles.description}>{this.state.allListings[index].description}</text>
                         </div>}
                 />
             </div>
