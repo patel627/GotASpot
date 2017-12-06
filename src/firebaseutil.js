@@ -18,7 +18,7 @@ admin.initializeApp({
             var errorCode = error.code;
             var errorMessage = error.message;
         // ...
-        });
+        }),
     
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
@@ -30,15 +30,14 @@ admin.initializeApp({
       },
 
       addSpot(user_hash, lat, long, owner, reviews) {
-        admin.database().child('Users').child('user_hash').once('value', function(fbdatasnap) {
+        admin.database().ref('Users').child('user_hash').once('value', function(fbdatasnap) {
           var exists = (fbdatasnap.val() !== null);
-          addEntryCB(user_hash, notebook_uuid, _text, _image,
-            _caption, _dateCreated, _authorID, _tagArr, exists);
+          addEntryCB(user_hash, lat, long, owner, reviews, exists);
         })
       },
     
       addEntryCB(user_hash, lat, long, owner, reviews, exists) {
-        if (exists == false) return;
+        //if (exists == false) return;
         
         var postsRef = admin.database().child("ParkingSpaces");
         
@@ -52,4 +51,8 @@ admin.initializeApp({
         });
       },
   }
+
+  module.exports.addSpot("user", "4", "5", "mehul", ["good", "bad"]);
+
+
   
