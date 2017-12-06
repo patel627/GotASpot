@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import Axios from 'axios';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import ReactList from 'react-list';
+import { Listing } from './Listing';
 const firebase = require("./firebaselogin.js");
 
 class Listings extends Component {
@@ -16,16 +17,16 @@ class Listings extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <FlatList
+            <div style={styles.container}>
+                <ReactList
                     data={this.state.allListings}
-                    renderItem={({ item }) =>
+                    renderItem={({ index, key }) =>
                         <div>
-                            <Text style={styles.address}>{item.key}</Text>
-                            <Text style={styles.description}>{item.description}</Text>
+                            <Text style={styles.address}>{this.state.allListings[index].address}</Text>
+                            <Text style={styles.description}>{this.state.allListings[index].description}</Text>
                         </div>}
                 />
-            </View>
+            </div>
         );
     }
 
