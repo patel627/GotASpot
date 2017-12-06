@@ -39,7 +39,7 @@ class Listings extends Component {
 
 
     refresh() {
-        getSpaces();
+        this.getSpaces();
     }
 
 
