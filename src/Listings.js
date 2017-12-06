@@ -11,7 +11,7 @@ class Listings extends Component {
             currentLongitude:0,
             allListings:[]
         };
-        refresh();
+        this.refresh();
     }
 
     render() {
