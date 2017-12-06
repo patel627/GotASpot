@@ -28,6 +28,7 @@ class Listings extends Component {
     }
 
     renderItem(index, key) {
+        console.log('parking space ' + index);
         return (
             <div key={key}>
                 <text>{this.state.allListings[index].address}</text>
