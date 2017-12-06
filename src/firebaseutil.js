@@ -26,7 +26,7 @@ const firebase = require("./firebaselogin.js");
         });
       },
 
-      addSpot(user_hash, title, lat, long, owner, reviews, exists){
+      addSpot(user_hash, title, lat, long, owner, reviews){
         firebase.database().ref('Users').child(user_hash).once('value', function(fbdatasnap) {
           var exists = (fbdatasnap.val() !== null);
           module.exports.addEntryCB(user_hash, title, lat, long, owner, reviews, exists);
@@ -50,7 +50,7 @@ const firebase = require("./firebaselogin.js");
       },
   }
 
-  //module.exports.addSpot("userid1", "Title", "4", "5", "john doe", ["good", "bad"]);
+  module.exports.addSpot("userid1", "Title", 4, 5, "john doe", ["good", "bad"]);
   //module.exports.getSpaceInfo('f', function(data) { console.log(data);});
 
 
