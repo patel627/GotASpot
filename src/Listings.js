@@ -17,13 +17,13 @@ class Listings extends Component {
 
     render() {
         return (
-            <div style={styles.container}>
+            <div >
                 <ReactList
                     data={this.state.allListings}
                     renderItem={({ index, key }) =>
                         <div>
-                            <text style={styles.address}>{this.state.allListings[index].address}</text>
-                            <text style={styles.description}>{this.state.allListings[index].description}</text>
+                            <text>{this.state.allListings[index].address}</text>
+                            <text>{this.state.allListings[index].description}</text>
                         </div>}
                 />
             </div>
@@ -66,23 +66,5 @@ class Listings extends Component {
         return JSON.parse(received);
     }*/
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingTop: 22
-    },
-    address: {
-        padding: 10,
-        fontSize: 18,
-        height: 44,
-    },
-    description: {
-        padding: 10,
-        fontSize: 10,
-        height: 44,
-    },
-
-})
 
 export default Listings;
