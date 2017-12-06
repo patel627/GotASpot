@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+const firebase = require("./firebaselogin.js");
 
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyB0CQbZJbrYG0gNgh4RHPEOu7YuBto_hac",
-    authDomain: "gotaspot-b1dcc.firebaseapp.com",
-    databaseURL: "https://gotaspot-b1dcc.firebaseio.com",
-    projectId: "gotaspot-b1dcc",
-    storageBucket: "gotaspot-b1dcc.appspot.com",
-    messagingSenderId: "722284475655"
-};
-var firebaseApp = firebase.initializeApp(config);
-var currentLatitude, currentLongitude;
-var allListings = [];
 class Listings extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            currentLatitude:0,
+            currentLongitude:0,
+            allListings:[]
         };
         init();
     }
@@ -29,7 +21,7 @@ class Listings extends Component {
         return (
             <View style={styles.container}>
                 <FlatList
-                    data={allListings}
+                    data={this.state.allListings}
                     renderItem={({ item }) =>
                         <div>
                             <Text style={styles.address}>{item.key}</Text>
@@ -42,8 +34,8 @@ class Listings extends Component {
 
 
     refresh() {
-        var spaces = firebaseApp.database().ref("ParkingSpaces");
-        var i;
+        var spaces = firebase.database().ref("ParkingSpaces");
+        /*var i;
         for (i = 0; i < spaces.length; i++) {
             var curLat, curLong;
             toLat = spaces[i].latitude;
@@ -51,7 +43,7 @@ class Listings extends Component {
             var distanceBetween = distanceFrom(toLat, toLong);
             spaces[i].time = distanceBetween.rows.elements.duration;
             spaces[i].distance = distanceBetween.rows.elements.distance;
-        }
+        }*/
     }
 
     sortAllListings() {
@@ -65,7 +57,7 @@ class Listings extends Component {
     distanceFrom(destLatitude, destLongitude) {
         distRequest = "https://maps.googleapis.com/maps/api/distancematrix/json?";
         var received = Axios.get(distRequest, {
-            origins: currentLatitude + "," + currentLlongitude,
+            origins: this.state.currentLatitude + "," + this.state.currentLongitude,
             destinations: destLatitude + "," + destLongitude,
             mode: "walking"
         }).then(function (response) {
