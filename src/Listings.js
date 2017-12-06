@@ -31,8 +31,8 @@ class Listings extends Component {
         console.log('parking space ' + index);
         return (
             <div key={key}>
-                <text>{this.state.allListings[index].address}</text>
-                <text>{this.state.allListings[index].description}</text>
+                <text>{this.state.allListings[index].Address}</text>
+                <text>{this.state.allListings[index].Description}</text>
             </div>
         );
     }
