@@ -6,8 +6,9 @@ admin.initializeApp({
   });
 
   module.exports = {
-    getSpaceInfo(spaceUID) {
+    getSpaceInfo(spaceUID, callback) {
         admin.database().ref(`/ParkingSpaces/${spaceUID}/`).once('value').then((fbdatasnap) => {
+          //console.log(fbdatasnap.val());
           callback(fbdatasnap.val());
         });
       },
@@ -53,6 +54,9 @@ admin.initializeApp({
   }
 
   module.exports.addSpot("user", "4", "5", "mehul", ["good", "bad"]);
+  module.exports.getSpaceInfo("-L-dncqcyd5UD_arAK11", function(data) {
+    console.log(data);
+  });
 
 
   
