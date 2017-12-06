@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
+//import Axios from 'axios';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 const firebase = require("./firebaselogin.js");
 
@@ -50,7 +50,7 @@ class Listings extends Component {
         return 0;
     }
 
-    distanceFrom(destLatitude, destLongitude) {
+    /*distanceFrom(destLatitude, destLongitude) {
         var distRequest = "https://maps.googleapis.com/maps/api/distancematrix/json?";
         var received = Axios.get(distRequest, {
             origins: this.state.currentLatitude + "," + this.state.currentLongitude,
@@ -62,7 +62,7 @@ class Listings extends Component {
             console.log(error);
         });
         return JSON.parse(received);
-    }
+    }*/
 }
 
 const styles = StyleSheet.create({
