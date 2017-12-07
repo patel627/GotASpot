@@ -22,9 +22,11 @@ class Listings extends Component {
         var spaces = firebase.database().ref('ParkingSpaces');
         console.log('refresh');
         //this.state.allListings = [];
-        spaces.on("value", (datamap) => {
+        let readData = []
+        this.setState({loading:true});
+        spaces.once("value").then( (datamap) => {
             for (let key in datamap.val()) {
-                console.log('current spaces ' + this.state.allListings.push({
+                console.log('current spaces ' + readData.push({
                     Address: datamap.val()[key].Address,
                     Description: datamap.val()[key].Description
                 }));
@@ -39,6 +41,11 @@ class Listings extends Component {
                 spaces[i].time = distanceBetween.rows.elements.duration;
                 spaces[i].distance = distanceBetween.rows.elements.distance;*/
             }
+
+            this.setState({
+                allListings: readData,
+                loading: false
+            });
         });
     }
 
