@@ -17,7 +17,7 @@ class Listings extends Component {
         };
 
         console.log("it reached here");
-        this.updateUser = this.updateUser.bind(this);
+        //this.updateUser = this.updateUser.bind(this);
         //this.refresh();
         //this.onListingClick = this.onListingClick.bind(this);
     }
@@ -86,15 +86,13 @@ class Listings extends Component {
     onListingClick(key) {
         console.log(key + " selected");
         this.accessedKey = key;
-        firebaseutil.getSpaceInfo(key, this.updateUser);
-    }
-
-    updateUser(data) {
-        if (data.CurrentUser === this.state.currentUser) {
-            firebaseutil.markOcupied(this.accessedKey, '');
-        } else {
-            firebaseutil.markOcupied(this.accessedKey, this.state.currentUser);
-        }
+        firebaseutil.getSpaceInfo(key, function(data) {    
+            if (data.CurrentUser === this.state.currentUser) {
+                firebaseutil.markOcupied(this.accessedKey, '');
+            } else {
+                firebaseutil.markOcupied(this.accessedKey, this.state.currentUser);
+            }
+        });
     }
 
 
