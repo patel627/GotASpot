@@ -77,8 +77,8 @@ if (!firebase.apps.length) {
       },
   }
 
-  module.exports.addSpot("userid1", "123 State Street", "Next to tree", 4, 5, "john doe", ["good", "bad"]);
-  module.exports.addSpot("userid1", "456 Third Street", "Across from Windsor", 4, 5, "john doe", ["good", "bad"]);
-  module.exports.addSpot("userid1", "789 First Street", "Next to something", 4, 5, "john doe", ["good", "bad"]);
+  //module.exports.addSpot("userid1", "123 State Street", "Next to tree", 4, 5, "john doe", ["good", "bad"]);
+  //module.exports.addSpot("userid1", "456 Third Street", "Across from Windsor", 4, 5, "john doe", ["good", "bad"]);
+  //module.exports.addSpot("userid1", "789 First Street", "Next to something", 4, 5, "john doe", ["good", "bad"]);
   //module.exports.getSpaceInfo('f', function(data) {    console.log(data); });
   //module.exports.markOcupied("-L-kHHfNQxSkLTRKWe-C", "ocupier");
