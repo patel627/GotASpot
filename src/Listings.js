@@ -34,6 +34,13 @@ class Listings extends Component {
                 <div>{this.allListings[index].Address}</div>
                 <div>{this.allListings[index].Description}</div>
             </div>
+            <div
+                jstcache="699"
+                role="presentation"
+                class="section-divider section-divider-bottom-line"
+                jsan="t-XcaLGvnyXuQ,7.section-divider,7.section-divider-bottom-line,5.height,0.role"
+                style="height: 0px;">
+            </div>
         );
     }
 
