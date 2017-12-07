@@ -49,7 +49,12 @@ class Listings extends Component {
 
         console.log('parking space ' + index);
         return (
-            <div>
+            <div
+                role="option"
+                tabindex="0"
+                class="section-result"
+                jsaction="pane.resultSection.click;keydown:pane.resultSection.keydown;mouseover:pane.resultSection.in;mouseout:pane.resultSection.out;focus:pane.resultSection.focusin;blur:pane.resultSection.focusout"
+                jsan="t-kpvi_-9WUes,7.section-result,0.data-result-index,0.jstrack,0.ved,0.vet,0.role,0.tabindex,22.jsaction">
                 <div className="button" key={this.state.allListings[index].Key} onClick={this.onListingClick(this.state.allListings[index].Key)}>
                     <div className="section-result-content">
                         <div className="section-result-text-content">
