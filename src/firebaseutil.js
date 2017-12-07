@@ -23,7 +23,6 @@ if (!firebase.apps.length) {
           callback(fbdatasnap.val());
         });
       },
-
       /*loginUser(email, password) {
         firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
             // Handle Errors here.
@@ -46,6 +45,11 @@ if (!firebase.apps.length) {
           var exists = (fbdatasnap.val() !== null);
           module.exports.addEntryCB(user_hash, address, desc, lat, long, owner, reviews, exists);
         })
+      },
+
+      markOcupied(spotid, ocupier) {
+        firebase.database().ref('ParkingSpots').child(newPostKey)
+        .update({ CurrentUser: ocupier});
       },
     
       addEntryCB(user_hash, address, desc, lat, long, owner, reviews, exists) {
