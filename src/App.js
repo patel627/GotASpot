@@ -4,14 +4,14 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  /*
+
   constructor() {
     super();
     this.state = {
       address: '',
-      description:'',
-      username:'',
-      items:[],
+      description: '',
+      username: '',
+      items: [],
 
       user: null
     }
@@ -33,21 +33,21 @@ class App extends Component {
   login() {
     auth.signInWithPopup(provider).then((result) => {
       const user = result.user;
-      this.setState({user});
+      this.setState({ user });
     });
   }
 
   logout() {
     auth.signOut().then(() => {
-      this.setState({user: null});
+      this.setState({ user: null });
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
 
-    firebaseutil.addSpot("userid1", this.state.address, this.state.description, 4, 5, this.state.user.displayName ||  this.state.user.email, ["good", "bad"]);
-    
+    firebaseutil.addSpot("userid1", this.state.address, this.state.description, 4, 5, this.state.user.displayName || this.state.user.email, ["good", "bad"]);
+
     this.setState({
       address: '',
       username: '',
@@ -58,7 +58,7 @@ class App extends Component {
   componentDidMount() {
     auth.onAuthStateChanged((user) => {
       if (user)
-        this.setState({user});
+        this.setState({ user });
     });
 
     const spotsRef = firebase.database().ref('ParkingSpots');
@@ -80,15 +80,30 @@ class App extends Component {
 
   removeItem(spaceId) {
     firebase.database().ref(`/ParkingSpaces/${spaceId}`).remove();
+  }
+
+  /*render() {
+      return (
+        <div className="App">
+          <header className="App-header">
+            <h1 className="App-title">Got a Spot?</h1>
+          </header> 
+          <Listings/>
+        </div>
+      );
+    }
   }*/
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Got a Spot?</h1>
-        </header> 
-        <Listings/>
+        <header>
+          <div className="wrapper">
+            <h1> Got a Spot?</h1>
+            {this.state.user ? <button onClick={this.logout}>Logout</button> : <button onClick={this.logout}>Logout</button>}
+          </div>
+        </header>
+        <Listings />
       </div>
     );
   }
