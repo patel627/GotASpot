@@ -17,6 +17,7 @@ class Listings extends Component {
         };
 
         console.log("it reached here");
+        this.updateUser = this.updateUser.bind(this);
         //this.refresh();
         //this.onListingClick = this.onListingClick.bind(this);
     }
