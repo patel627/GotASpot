@@ -81,24 +81,20 @@ class Listings extends Component {
         );
     }
 
+    accessedKey;
     onListingClick(key) {
         console.log(key + " selected");
-        firebaseutil.getSpaceInfo(key, function(data) {
-            if (data.CurrentUser === this.state.userName) {
-                firebaseutil.markOcupied(key, '');
-            } else {
-                firebaseutil.markOcupied(key, this.state.userName);
-            }
-        });
+        this.accessedKey = key;
+        firebaseutil.getSpaceInfo(key, updateUser(data));
     }
 
-    /*updateUser(key, data) {
+    updateUser(data) {
         if (data.CurrentUser === this.state.userName) {
-            firebaseutil.markOcupied(key, '');
+            firebaseutil.markOcupied(this.accessedKey, '');
         } else {
-            firebaseutil.markOcupied(key, this.state.userName);
+            firebaseutil.markOcupied(this.accessedKey, this.state.userName);
         }
-    }*/
+    }
 
 
 
