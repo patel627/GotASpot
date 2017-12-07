@@ -109,9 +109,6 @@ class App extends Component {
         </header>
 
         <div>
-        <div className='user-profile'>
-          <img src={this.state.user.photoURL} />
-        </div>
         <div className='container'>
           <section className='add-item'>
             <form onSubmit={this.handleSubmit}>
