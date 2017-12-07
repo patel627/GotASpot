@@ -86,13 +86,15 @@ class Listings extends Component {
     onListingClick(key) {
         console.log(key + " selected");
         this.accessedKey = key;
-        firebaseutil.getSpaceInfo(key, function(data) {    
-            if (data.CurrentUser === this.state.currentUser) {
-                firebaseutil.markOcupied(this.accessedKey, '');
-            } else {
-                firebaseutil.markOcupied(this.accessedKey, this.state.currentUser);
-            }
-        });
+        firebaseutil.getSpaceInfo(key, (data) => this.updateUser(data)); 
+    }
+
+    updateUser(data) {
+        if (data.CurrentUser === this.state.currentUser) {
+            firebaseutil.markOcupied(this.accessedKey, '');
+        } else {
+            firebaseutil.markOcupied(this.accessedKey, this.state.currentUser);
+        }
     }
 
 
