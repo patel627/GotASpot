@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Listings from './Listings';
 import logo from './logo.svg';
 import './App.css';
-import firebase, {auth, provider} from './firebase.js'
+import firebase, {auth, provider} from './firebaselogin.js'
 var firebaseutil = require('./firebaseutil.js');
 
 
