@@ -29,16 +29,18 @@ class Listings extends Component {
     renderItem(index, key) {
         console.log('parking space ' + index);
         return (
-            <div key={key}>
-                <div>{this.allListings[index].Address}</div>
-                <div>{this.allListings[index].Description}</div>
-            </div>
-            <div
-                jstcache="699"
-                role="presentation"
-                class="section-divider section-divider-bottom-line"
-                jsan="t-XcaLGvnyXuQ,7.section-divider,7.section-divider-bottom-line,5.height,0.role"
-                style="height: 0px;">
+            <div>
+                <div key={key}>
+                    <div>{this.allListings[index].Address}</div>
+                    <div>{this.allListings[index].Description}</div>
+                </div>
+                <div
+                    jstcache="699"
+                    role="presentation"
+                    class="section-divider section-divider-bottom-line"
+                    jsan="t-XcaLGvnyXuQ,7.section-divider,7.section-divider-bottom-line,5.height,0.role"
+                    style="height: 0px;">
+                </div>
             </div>
         );
     }
