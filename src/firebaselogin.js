@@ -1,4 +1,4 @@
-var firebase = require("firebase");
+import firebase from 'firebase';
 var config = {
     apiKey: "AIzaSyB0CQbZJbrYG0gNgh4RHPEOu7YuBto_hac",
     authDomain: "gotaspot-b1dcc.firebaseapp.com",
@@ -9,4 +9,7 @@ var config = {
   };
   firebase.initializeApp(config);
 
-module.exports = firebase; 
+export const provider = new firebase.auth.GoogleAuthProvider();
+export const auth = firebase.auth();
+export const database = firebase.database();
+export default firebase;
