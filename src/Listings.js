@@ -90,10 +90,10 @@ class Listings extends Component {
 
     updateUser(data) {
         this.console.log('updating user');
-        if (data.CurrentUser === this.state.userName) {
+        if (data.CurrentUser === this.state.currentUser) {
             firebaseutil.markOcupied(this.accessedKey, '');
         } else {
-            firebaseutil.markOcupied(this.accessedKey, this.state.userName);
+            firebaseutil.markOcupied(this.accessedKey, this.state.currentUser);
         }
     }
 
