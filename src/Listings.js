@@ -14,7 +14,11 @@ class Listings extends Component {
         };
 
         console.log("it reached here");
-        this.refresh();
+        //this.refresh();
+    }
+
+    componentWillMount() {
+        this.getSpaces();
     }
 
     render() {
