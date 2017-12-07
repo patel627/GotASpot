@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  /*
   constructor() {
     super();
     this.state = {
@@ -52,8 +53,34 @@ class App extends Component {
       username: '',
       description: ''
     });
- 
   }
+
+  componentDidMount() {
+    auth.onAuthStateChanged((user) => {
+      if (user)
+        this.setState({user});
+    });
+
+    const spotsRef = firebase.database().ref('ParkingSpots');
+    spotsRef.on('value', (snapshot) => {
+      let spots = snapshot.val();
+      let newState = [];
+      for (let item in items) {
+        newState.push({
+          description: items[item].description,
+          owner: items[item].owner
+        });
+      }
+
+      this.setState({
+        items: newState
+      });
+    });
+  }
+
+  removeItem(spaceId) {
+    firebase.database().ref(`/ParkingSpaces/${spaceId}`).remove();
+  }*/
 
   render() {
     return (
