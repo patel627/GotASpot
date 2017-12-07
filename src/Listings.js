@@ -87,6 +87,7 @@ class Listings extends Component {
         console.log(key + " selected");
         this.accessedKey = key;
         firebaseutil.markOcupied(this.accessedKey, this.state.currentUser);
+        this.forceUpdate();
     }
 
 
