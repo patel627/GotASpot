@@ -11,7 +11,7 @@ class Listings extends Component {
             currentLatitude: 0,
             currentLongitude: 0,
             allListings: [],
-            loading: true
+            loading: false
         };
 
         console.log("it reached here");
@@ -22,7 +22,7 @@ class Listings extends Component {
         var spaces = firebase.database().ref('ParkingSpaces');
         console.log('refresh');
         //this.state.allListings = [];
-        let readData = []
+        var readData = []
         this.setState({loading:true});
         spaces.once("value").then( (datamap) => {
             for (let key in datamap.val()) {
