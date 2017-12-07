@@ -50,7 +50,7 @@ class Listings extends Component {
         console.log('parking space ' + index);
         return (
             <div>
-                <div className="button" key={this.state.allListings[index].Key} onClick="onListingClick(this)">
+                <div className="button" key={this.state.allListings[index].Key} onClick={this.onListingClick(this.state.allListings[index].Key)}>
                     <div className="section-result-content">
                         <div className="section-result-text-content">
                             <div className="section-result-header">
@@ -74,8 +74,7 @@ class Listings extends Component {
         );
     }
 
-    onListingClick(element) {
-        var key = element.getAttribute('key');
+    onListingClick(key) {
         console.log(key + " selected");
         firebaseutil.markOcupied(key, this.props.username);
     }
