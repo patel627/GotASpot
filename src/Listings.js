@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 //import { Listing } from './Listing';
 import firebase from './firebaselogin.js'
+<<<<<<< HEAD
+=======
+var firebaseutil = require('./firebaseutil.js');
+>>>>>>> 879cedbe7f17f670513a75018ad48b13a2917ad4
 
 
 class Listings extends Component {
