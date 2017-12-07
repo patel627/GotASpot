@@ -86,7 +86,7 @@ class Listings extends Component {
                                 {this.state.allListings[index].Description}
                             </span>
                             <span className="section-result-separator">.</span>
-                            <span className="section-result-details">
+                            <span className="section-result-location">
                                 {this.state.allListings[index].CurrentUser}
                             </span>
                         </div>
@@ -104,6 +104,9 @@ class Listings extends Component {
         this.getSpaces();
     }
 
+    markSpot(user, key) {
+        
+    } 
 
     getSpaces() {
         var spaces = firebase.database().ref('ParkingSpaces');
