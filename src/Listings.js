@@ -35,8 +35,6 @@ class Listings extends Component {
                     <div>{this.allListings[index].Description}</div>
                 </div>
                 <div
-                    jstcache="699"
-                    role="presentation"
                     class="section-divider section-divider-bottom-line"
                     style="height: 0px;">
                 </div>
