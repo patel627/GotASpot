@@ -91,9 +91,6 @@ class Listings extends Component {
             }
             this.wait = 1;
         });
-        while (!this.wait) {
-            console.log('waiting');
-        }
         /*this.allListings = [
             {
                 CurrentUser: "N/A",
