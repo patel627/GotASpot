@@ -24,6 +24,7 @@ class Listings extends Component {
                     itemRenderer={this.renderItem}
                     type='uniform'
                 />
+                <div>hello</div>
             </div>
         );
     }
