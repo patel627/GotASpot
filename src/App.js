@@ -62,7 +62,7 @@ class App extends Component {
     auth.onAuthStateChanged((user) => {
       if (user)
         this.setState({ user });
-      console.log("USER CHECK: " + user);
+      console.log("USER CHECK: " + user.toString());
     });
 
     /*const spotsRef = firebase.database().ref('ParkingSpots');
