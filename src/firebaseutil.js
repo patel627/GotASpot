@@ -60,7 +60,7 @@ if (!firebase.apps.length) {
         
         var postsRef = firebase.database().ref("ParkingSpaces");
         var newPostRef = postsRef.push().set({
-          CurrentUser: "",
+          CurrentUser: "OPEN",
           Address: address,
           Description: desc,
           Latitude: lat,

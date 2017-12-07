@@ -86,15 +86,7 @@ class Listings extends Component {
     onListingClick(key) {
         console.log(key + " selected");
         this.accessedKey = key;
-        firebaseutil.getSpaceInfo(key, (data) => this.updateUser(data)); 
-    }
-
-    updateUser(data) {
-        if (data.CurrentUser === this.state.currentUser) {
-            firebaseutil.markOcupied(this.accessedKey, '');
-        } else {
-            firebaseutil.markOcupied(this.accessedKey, this.state.currentUser);
-        }
+        firebaseutil.markOcupied(this.accessedKey, this.state.currentUser);
     }
 
 
@@ -113,12 +105,14 @@ class Listings extends Component {
         this.setState({ loading: true });
         spaces.once("value").then((datamap) => {
             for (let key in datamap.val()) {
-                console.log('current spaces ' + readData.push({
-                    Address: datamap.val()[key].Address,
-                    Description: datamap.val()[key].Description,
-                    Key: key,
-                    CurrentUser: datamap.val()[key].CurrentUser
-                }));
+                if (datamap.val()[key].CurrentUser === "OPEN" || datamap.val()[key].CurrentUser === this.state.currentUser) {
+                    console.log('current spaces ' + readData.push({
+                        Address: datamap.val()[key].Address,
+                        Description: datamap.val()[key].Description,
+                        Key: key,
+                        CurrentUser: datamap.val()[key].CurrentUser
+                    }));
+                }
 
                 /*var curLat, curLong;
                 toLat = spaces[i].latitude;
