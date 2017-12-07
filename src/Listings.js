@@ -5,12 +5,12 @@ import firebase from './firebaselogin.js'
 
 
 class Listings extends Component {
-    allListings = [];
     constructor(props) {
         super(props);
         this.state = {
             currentLatitude: 0,
             currentLongitude: 0,
+            allListings: []
         };
 
         console.log("it reached here");
@@ -18,15 +18,15 @@ class Listings extends Component {
     }
 
     render() {
-        console.log('number of spaces ' + this.allListings.length);
+        console.log('number of spaces ' + this.state.allListings.length);
         var i;
-        for (i = 0; i < this.allListings.length; i++) {
-            console.log(this.allListings[i].Address);
+        for (i = 0; i < this.state.allListings.length; i++) {
+            console.log(this.state.allListings[i].Address);
         }
         console.log("rendering");
         var ulist = [];
         var i;
-        for (i = 0; i < this.allListings.length; i++) {
+        for (i = 0; i < this.state.allListings.length; i++) {
             ulist.push(this.renderItem(i, 'listing' + i));
         }
         return ulist;
@@ -42,13 +42,13 @@ class Listings extends Component {
                         <div className="section-result-header">
                             <div className="section-result-title-container">
                                 <h3 className="section-result-title">
-                                    {this.allListings[index].Address}
+                                    {this.state.allListings[index].Address}
                                 </h3>
                             </div>
                         </div>
                         <div className="section-result-details-container">
                             <div className="section-result-details">
-                                {this.allListings[index].Description}
+                                {this.state.allListings[index].Description}
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@ class Listings extends Component {
     getSpaces() {
         var spaces = firebase.database().ref('ParkingSpaces');
         console.log('refresh');
-        this.allListings = [];
+        this.state.allListings = [];
         spaces.on("value", (datamap) => {
             var i;
             for (var key in datamap.val()) {
