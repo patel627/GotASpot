@@ -12,11 +12,13 @@ class Listings extends Component {
             currentLongitude: 0,
             allListings: []
         };
-        this.refresh();
+
         console.log("it reached here");
+        this.refresh();
     }
 
     render() {
+        console.log("rendering");
         return (
             <div >
                 <ReactList
