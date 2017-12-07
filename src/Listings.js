@@ -30,7 +30,7 @@ class Listings extends Component {
         return (
             <div className="button" style="section-result">
                 <div style="secion-result-content">
-                    <div style="section-result-header">{this.allListings[index].Address}</div>
+                    <div style="section-result-title">{this.allListings[index].Address}</div>
                     <div style="section-result-details">{this.allListings[index].Description}</div>
                 </div>
                 <div className="section-divider section-divider-bottom-line">
