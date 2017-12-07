@@ -107,7 +107,6 @@ class App extends Component {
             {this.state.user ? <button onClick={this.logout}>Logout</button> : <button onClick={this.login}>Log In</button>}
           </div>
         </header>
-
         <div>
           <div className='container'>
             <section className='add-item'>
@@ -118,9 +117,9 @@ class App extends Component {
               </form>
             </section>
           </div>
+          <div className="section-divider-bottom-line"></div>
+          {this.state.user ? <Listings userName={this.state.user.displayName} /> : <p>Not logged in</p>}
         </div>
-        <div className="section-result-seperator">_</div>
-        {this.state.user ? <Listings userName={this.state.user.displayName} /> : <p>Not logged in</p>}
       </div>
     );
   }
