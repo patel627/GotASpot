@@ -48,7 +48,7 @@ if (!firebase.apps.length) {
       },
 
       markOcupied(spotid, ocupier) {
-        firebase.database().ref('ParkingSpots').child(ocupier)
+        firebase.database().ref('ParkingSpots').child(spotid)
         .update({ CurrentUser: ocupier});
       },
     
