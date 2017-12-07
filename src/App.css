@@ -103,7 +103,7 @@ button {
   to { transform: rotate(360deg); }
 }
 
-.section-listbox{-webkit-flex:none;-ms-flex:none;flex:none;width:408px;position:absolute;top:100;height:0;left:0}
+.section-listbox{-webkit-flex:none;-ms-flex:none;flex:none;width:408px;position:absolute;top:100;height:0;left:0;border:1px black}
 .section-listbox-horizontal{display:flex;flex-direction:row}
 .section-listbox-root{display:flex;flex-direction:column;height:100%}
 .section-listbox-space-between{justify-content:space-between;height:auto;width:auto;display:flex;flex-direction:column}
