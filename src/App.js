@@ -62,7 +62,7 @@ class App extends Component {
     auth.onAuthStateChanged((user) => {
       if (user)
         this.setState({ user });
-      console.log("USER CHECK: " + user);
+      console.log("USER CHECK: " + JSON.stringify(user));
     });
 
     /*const spotsRef = firebase.database().ref('ParkingSpots');
@@ -107,7 +107,7 @@ class App extends Component {
             {this.state.user ? <button onClick={this.logout}>Logout</button> : <button onClick={this.login}>Log In</button>}
           </div>
         </header>
-       {this.state.user?<Listings />: <p>Not logged in</p> } 
+       {this.state.user?<Listings userName={this.state.user.displayName} />: <p>Not logged in</p> } 
       </div>
     );
   }
