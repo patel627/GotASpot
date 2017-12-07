@@ -60,28 +60,25 @@ class Listings extends Component {
                 spaces[i].distance = distanceBetween.rows.elements.distance;
             }
         });*/
-        this.state.allListings = {
-            ParkingSpaces: {
-                LKSDFJLSKDF: {
-                    CurrentUser: "N/A",
-                    Address: "nowhereland",
-                    Description: "this goes to nowhere",
-                    Latitude: 0,
-                    Longitude: 0,
-                    Owner: "owner",
-                    Reivews: "reviews",
-                },
-                SDFJLSDKFJLD: {
-                    CurrentUser: "N/A",
-                    Address: "nowhereland2",
-                    Description: "this goes to nowhere also",
-                    Latitude: 0,
-                    Longitude: 0,
-                    Owner: "owner",
-                    Reivews: "reviews",
-                }
+        this.state.allListings = [
+            {
+                CurrentUser: "N/A",
+                Address: "nowhereland",
+                Description: "this goes to nowhere",
+                Latitude: 0,
+                Longitude: 0,
+                Owner: "owner",
+                Reivews: "reviews",
+            }, {
+                CurrentUser: "N/A",
+                Address: "nowhereland2",
+                Description: "this goes to nowhere also",
+                Latitude: 0,
+                Longitude: 0,
+                Owner: "owner",
+                Reivews: "reviews",
             }
-        };
+        ];
     }
 
     sortAllListings() {
