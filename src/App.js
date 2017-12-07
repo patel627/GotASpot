@@ -57,7 +57,7 @@ class App extends Component {
       description: ''
     });
 
-    this.refresh();
+    //this.refresh();
     this.forceUpdate();
   }
 
