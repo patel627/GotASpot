@@ -22,7 +22,7 @@ class Listings extends Component {
             <div >
                 <ReactList
                     itemRenderer={this.renderItem}
-                    type='simple'
+                    type='uniform'
                 />
             </div>
         );
