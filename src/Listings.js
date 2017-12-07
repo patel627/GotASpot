@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 //import { Listing } from './Listing';
 import firebase from './firebaselogin.js'
+var firebaseutil = require('firebaseutil.js');
 
 
 class Listings extends Component {
@@ -19,34 +20,7 @@ class Listings extends Component {
     }
 
     componentWillMount() {
-        var spaces = firebase.database().ref('ParkingSpaces');
-        console.log('refresh');
-        //this.state.allListings = [];
-        var readData = []
-        this.setState({ loading: true });
-        spaces.once("value").then((datamap) => {
-            for (let key in datamap.val()) {
-                console.log('current spaces ' + readData.push({
-                    Address: datamap.val()[key].Address,
-                    Description: datamap.val()[key].Description
-                }));
-                /*console.log(key);
-                console.log(spotVal.Address);
-                console.log(spotVal.Description);*/
-
-                /*var curLat, curLong;
-                toLat = spaces[i].latitude;
-                toLong = spaces[i].longitude;
-                var distanceBetween = distanceFrom(toLat, toLong);
-                spaces[i].time = distanceBetween.rows.elements.duration;
-                spaces[i].distance = distanceBetween.rows.elements.distance;*/
-            }
-
-            this.setState({
-                allListings: readData,
-                loading: false
-            });
-        });
+        getSpaces();
     }
 
     render() {
@@ -105,28 +79,23 @@ class Listings extends Component {
     }
 
     markSpot(user, key) {
-
+        firebase.
     }
 
     getSpaces() {
         var spaces = firebase.database().ref('ParkingSpaces');
         console.log('refresh');
-        this.state.allListings = [];
-        spaces.on("value", (datamap) => {
-            var i;
-            var newState = [];
-            for (var key in datamap.val()) {
-                console.log('current spaces ' + newState.push(
-                    {
-                        Address: datamap.val()[key].Address,
-                        Description: datamap.val()[key].Description,
-                        Key: key,
-                        CurrentUser: datamap.val()[key].CurrentUser,
-                    }
-                ));
-                /*console.log(key);
-                console.log(spotVal.Address);
-                console.log(spotVal.Description);*/
+        //this.state.allListings = [];
+        var readData = []
+        this.setState({ loading: true });
+        spaces.once("value").then((datamap) => {
+            for (let key in datamap.val()) {
+                console.log('current spaces ' + readData.push({
+                    Address: datamap.val()[key].Address,
+                    Description: datamap.val()[key].Description,
+                    Key: key,
+                    CurrentUser: datamap.val()[key].CurrentUser
+                }));
 
                 /*var curLat, curLong;
                 toLat = spaces[i].latitude;
@@ -135,29 +104,12 @@ class Listings extends Component {
                 spaces[i].time = distanceBetween.rows.elements.duration;
                 spaces[i].distance = distanceBetween.rows.elements.distance;*/
             }
+
             this.setState({
-                allListings: newState
+                allListings: readData,
+                loading: false
             });
         });
-        /*this.allListings = [
-            {
-                CurrentUser: "N/A",
-                Address: "nowhereland",
-                Description: "this goes to nowhere",
-                Latitude: 0,
-                Longitude: 0,
-                Owner: "owner",
-                Reivews: "reviews",
-            }, {
-                CurrentUser: "N/A",
-                Address: "nowhereland2",
-                Description: "this goes to nowhere also",
-                Latitude: 0,
-                Longitude: 0,
-                Owner: "owner",
-                Reivews: "reviews",
-            }
-        ];*/
         console.log("has spaces");
     }
 
