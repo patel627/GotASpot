@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Listings from './Listings';
 import logo from './logo.svg';
 import './App.css';
-var firebaseutil = require('./firebaseutil.js');
 import firebase, {auth, provider} from './firebase.js'
+var firebaseutil = require('./firebaseutil.js');
+
 
 class App extends Component {
 
