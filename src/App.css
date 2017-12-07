@@ -42,6 +42,7 @@
 
 .container {
   display: flex;
+  width: 1500;
   margin: 0 auto;
   padding-top: 30px;
 }
