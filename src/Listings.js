@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 //import { Listing } from './Listing';
-const firebase = require("./firebaselogin.js");
+const database = require("./firebaselogin.js");
 class Listings extends Component {
     allListings = [];
     constructor(props) {
@@ -59,7 +59,7 @@ class Listings extends Component {
 
 
     getSpaces() {
-        var spaces = firebase.database().ref("ParkingSpaces");
+        var spaces = database.ref("ParkingSpaces");
         console.log('refresh');
         spaces.on("value", (datamap) => {
             var i;
