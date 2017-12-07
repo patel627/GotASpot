@@ -64,7 +64,11 @@ class Listings extends Component {
         for (i = 0; i < this.state.allListings.length; i++) {
             ulist.push(this.renderItem(i, 'listing' + i));
         }
-        return ulist;
+        return (
+            <div class="section-listbox section-scrollbox scrollable-y scrollable-show">
+                {ulist}
+            </div>
+        );
     }
 
     renderItem(index, key) {
@@ -101,8 +105,8 @@ class Listings extends Component {
     }
 
     markSpot(user, key) {
-        
-    } 
+
+    }
 
     getSpaces() {
         var spaces = firebase.database().ref('ParkingSpaces');
@@ -112,14 +116,14 @@ class Listings extends Component {
             var i;
             var newState = [];
             for (var key in datamap.val()) {
-                    console.log('current spaces ' + newState.push(
-                        {
-                            Address: datamap.val()[key].Address,
-                            Description: datamap.val()[key].Description,
-                            Key: key,
-                            CurrentUser: datamap.val()[key].CurrentUser,
-                        }
-                    ));
+                console.log('current spaces ' + newState.push(
+                    {
+                        Address: datamap.val()[key].Address,
+                        Description: datamap.val()[key].Description,
+                        Key: key,
+                        CurrentUser: datamap.val()[key].CurrentUser,
+                    }
+                ));
                 /*console.log(key);
                 console.log(spotVal.Address);
                 console.log(spotVal.Description);*/
