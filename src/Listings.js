@@ -76,7 +76,7 @@ class Listings extends Component {
 
     onListingClick(key) {
         console.log(key + " selected");
-        firebaseutil.markOcupied(key, this.props.username);
+        firebaseutil.markOcupied(key, this.props.userName);
     }
 
 
