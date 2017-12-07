@@ -102,11 +102,11 @@ class App extends Component {
       <div className="App">
         <header>
           <div className="wrapper">
-            <h1> Got a Spot?</h1>
-            {this.state.user ? <button onClick={this.logout}>Logout</button> : <button onClick={this.logout}>Logout</button>}
+            <h1 className="App-title">Got a Spot?</h1>
+            {this.state.user ? <button onClick={this.logout}>Logout</button> : <button onClick={this.login}>Log In</button>}
           </div>
         </header>
-        <Listings />
+       {this.state.user?<Listings />: <p>Not logged in</p> } 
       </div>
     );
   }
