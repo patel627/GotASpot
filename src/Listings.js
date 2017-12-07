@@ -72,6 +72,8 @@ class Listings extends Component {
                 };
                 this.allListings.push(spotVal);
                 console.log(key);
+                console.log(datamap.val()[key].Address);
+                console.log(datamap.val()[key].Description);
 
                 /*var curLat, curLong;
                 toLat = spaces[i].latitude;
