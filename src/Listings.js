@@ -18,10 +18,10 @@ class Listings extends Component {
 
     render() {
         console.log("rendering");
-        var ulist = '';
+        var ulist = [];
         var i;
         for (i = 0; i < this.allListings.length; i++) {
-            ulist = ulist + this.renderItem(i, 'Spot').toString();
+            ulist.pushthis.renderItem(i, 'Spot').toString();
         }
         return ulist;
     }
