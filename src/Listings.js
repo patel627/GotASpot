@@ -83,11 +83,7 @@ class Listings extends Component {
                         </div>
                         <div className="section-result-details-container">
                             <span className="section-result-details">
-                                {this.state.allListings[index].Description}
-                            </span>
-                            <span className="section-result-separator">.</span>
-                            <span className="section-result-location">
-                                {this.state.allListings[index].CurrentUser}
+                                {this.state.allListings[index].Description} . {this.state.allListings[index].CurrentUser}
                             </span>
                         </div>
                     </div>
@@ -121,7 +117,7 @@ class Listings extends Component {
                             Address: datamap.val()[key].Address,
                             Description: datamap.val()[key].Description,
                             Key: key,
-                            CurrentUser: datamap.val()[key].CurrentUser
+                            CurrentUser: datamap.val()[key].CurrentUser,
                         }
                     ));
                 /*console.log(key);
