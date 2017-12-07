@@ -78,9 +78,6 @@ class Listings extends Component {
         this.getSpaces();
     }
 
-    markSpot(user, key) {
-        firebase.
-    }
 
     getSpaces() {
         var spaces = firebase.database().ref('ParkingSpaces');
