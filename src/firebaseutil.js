@@ -48,9 +48,15 @@ if (!firebase.apps.length) {
       },
 
       markOcupied(spotid, ocupier) {
-        let updateref = firebase.database().ref('ParkingSpaces').child(spotid);
-        console.log(updateref);
-        updateref.update({"CurrentUser" : ocupier});
+        let parkingRef = firebase.database().ref('ParkingSpaces').child(spotid);
+        parkingRef.on('value', (fbdatasnap) => {
+            //console.log(Object.values(fbdatasnap.val())[0]);
+            let currdata = fbdatasnap.val();
+            if (currdata.CurrentUser === "OPEN")
+              firebase.database().ref('ParkingSpaces').child(spotid).update({"CurrentUser" : ocupier});
+            else
+              firebase.database().ref('ParkingSpaces').child(spotid).update({"CurrentUser" : "OPEN"});
+          });
       },
 
     
