@@ -10,7 +10,8 @@ class Listings extends Component {
         this.state = {
             currentLatitude: 0,
             currentLongitude: 0,
-            allListings: []
+            allListings: [],
+            loading: true
         };
 
         console.log("it reached here");
@@ -18,10 +19,33 @@ class Listings extends Component {
     }
 
     componentWillMount() {
-        this.getSpaces();
+        var spaces = firebase.database().ref('ParkingSpaces');
+        console.log('refresh');
+        //this.state.allListings = [];
+        spaces.on("value", (datamap) => {
+            for (let key in datamap.val()) {
+                console.log('current spaces ' + this.state.allListings.push({
+                    Address: datamap.val()[key].Address,
+                    Description: datamap.val()[key].Description
+                }));
+                /*console.log(key);
+                console.log(spotVal.Address);
+                console.log(spotVal.Description);*/
+
+                /*var curLat, curLong;
+                toLat = spaces[i].latitude;
+                toLong = spaces[i].longitude;
+                var distanceBetween = distanceFrom(toLat, toLong);
+                spaces[i].time = distanceBetween.rows.elements.duration;
+                spaces[i].distance = distanceBetween.rows.elements.distance;*/
+            }
+        });
     }
 
     render() {
+        if (this.state.loading) {
+            console.log("loading.....");
+        }
         console.log('number of spaces ' + this.state.allListings.length);
         var i;
         for (i = 0; i < this.state.allListings.length; i++) {
