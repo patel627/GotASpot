@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-//import Axios from 'axios';
-import ReactList from 'react-list';
+import Axios from 'axios';
 //import { Listing } from './Listing';
 const firebase = require("./firebaselogin.js");
 class Listings extends Component {
@@ -36,6 +35,7 @@ class Listings extends Component {
                 </div>
                 <div className="section-divider section-divider-bottom-line">
                 </div>
+                <div className="button"/>
             </div>
         );
     }
