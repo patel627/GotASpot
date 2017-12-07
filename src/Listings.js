@@ -82,6 +82,7 @@ class Listings extends Component {
                 Reivews: "reviews",
             }
         ];
+        console.log("has spaces");
     }
 
     sortAllListings() {
