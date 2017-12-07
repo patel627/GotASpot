@@ -49,24 +49,26 @@ class Listings extends Component {
 
         console.log('parking space ' + index);
         return (
-            <div className="button">
-                <div className="section-result-content">
-                    <div className="section-result-text-content">
-                        <div className="section-result-header">
-                            <div className="section-result-title-container">
-                                <h3 className="section-result-title">
-                                    {this.state.allListings[index].Address}
-                                </h3>
+            <div>
+                <div className="button">
+                    <div className="section-result-content">
+                        <div className="section-result-text-content">
+                            <div className="section-result-header">
+                                <div className="section-result-title-container">
+                                    <h3 className="section-result-title">
+                                        {this.state.allListings[index].Address}
+                                    </h3>
+                                </div>
+                            </div>
+                            <div className="section-result-details-container">
+                                <span className="section-result-details">
+                                    {this.state.allListings[index].Description} . {this.state.allListings[index].CurrentUser}
+                                </span>
                             </div>
                         </div>
-                        <div className="section-result-details-container">
-                            <span className="section-result-details">
-                                {this.state.allListings[index].Description} . {this.state.allListings[index].CurrentUser}
-                            </span>
-                        </div>
                     </div>
-                </div>
-                <div className="section-divider section-divider-bottom-line">
+                    <div className="section-divider section-divider-bottom-line">
+                    </div>
                 </div>
             </div>
         );
