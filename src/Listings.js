@@ -38,7 +38,6 @@ class Listings extends Component {
                     jstcache="699"
                     role="presentation"
                     class="section-divider section-divider-bottom-line"
-                    jsan="t-XcaLGvnyXuQ,7.section-divider,7.section-divider-bottom-line,5.height,0.role"
                     style="height: 0px;">
                 </div>
             </div>
