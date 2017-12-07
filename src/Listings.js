@@ -70,7 +70,7 @@ class Listings extends Component {
                             </div>
                             <div className="section-result-details-container">
                                 <span className="section-result-details">
-                                    {this.state.allListings[index].Description} In use by: {this.state.allListings[index].CurrentUser}
+                                    {this.state.allListings[index].Description} --- In use by: {this.state.allListings[index].CurrentUser}
                                 </span>
                             </div>
                         </div>
