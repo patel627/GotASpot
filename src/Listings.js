@@ -59,23 +59,27 @@ class Listings extends Component {
 
 
     getSpaces() {
-        /*var spaces = firebase.database().ref("ParkingSpaces");
+        var spaces = firebase.database().ref("ParkingSpaces");
         console.log('refresh');
         spaces.on("value", (datamap) => {
-            this.state.allListings = Object.values(datamap.val());
             var i;
-            for (i = 0; i < this.state.allListings.length; i++) {
-                console.log(this.state.allListings[i].address);
+            for (var key in datamap.val()) {
+                var spotVal = {
+                    Address: datamap.val()[key].Address,
+                    Description: datamap.val()[key].Description
+                };
+                this.allListings.push(spotVal);
+                console.log(key);
 
-                var curLat, curLong;
+                /*var curLat, curLong;
                 toLat = spaces[i].latitude;
                 toLong = spaces[i].longitude;
                 var distanceBetween = distanceFrom(toLat, toLong);
                 spaces[i].time = distanceBetween.rows.elements.duration;
-                spaces[i].distance = distanceBetween.rows.elements.distance;
+                spaces[i].distance = distanceBetween.rows.elements.distance;*/
             }
-        });*/
-        this.allListings = [
+        });
+        /*this.allListings = [
             {
                 CurrentUser: "N/A",
                 Address: "nowhereland",
@@ -92,7 +96,7 @@ class Listings extends Component {
                 Longitude: 0,
                 Owner: "owner",
                 Reivews: "reviews",
-            }
+            }*/
         ];
         var i;
         for (i = 0; i < this.allListings.length; i++) {
