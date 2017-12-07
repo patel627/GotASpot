@@ -34,7 +34,7 @@ class Listings extends Component {
                     <div>{this.allListings[index].Address}</div>
                     <div>{this.allListings[index].Description}</div>
                 </div>
-                <div class="section-divider section-divider-bottom-line">
+                <div className="section-divider section-divider-bottom-line">
                 </div>
             </div>
         );
