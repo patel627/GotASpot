@@ -9,6 +9,7 @@ class Listings extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            currentUser: this.props.userName,
             currentLatitude: 0,
             currentLongitude: 0,
             allListings: [],
@@ -83,13 +84,14 @@ class Listings extends Component {
     onListingClick(key) {
         console.log(key + " selected");
         firebaseutil.getSpaceInfo(key, function(data) {
-            if (data.CurrentUser === this.props.userName) {
+            if (data.CurrentUser === this.state.userName) {
                 firebaseutil.markOcupied(key, '');
             } else {
-                firebaseutil.markOcupied(key, this.props.userName);
+                firebaseutil.markOcupied(key, this.state.userName);
             }
         });
     }
+    
 
 
     refresh() {
