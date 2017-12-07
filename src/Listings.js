@@ -67,11 +67,10 @@ class Listings extends Component {
         spaces.on("value", (datamap) => {
             var i;
             for (var key in datamap.val()) {
-                var spotVal = {
+                this.allListings.push({
                     Address: datamap.val()[key].Address,
                     Description: datamap.val()[key].Description
-                };
-                this.allListings.push(spotVal);
+                });
                 /*console.log(key);
                 console.log(spotVal.Address);
                 console.log(spotVal.Description);*/
