@@ -20,7 +20,7 @@ class Listings extends Component {
     }
 
     componentWillMount() {
-        getSpaces();
+        this.getSpaces();
     }
 
     render() {
