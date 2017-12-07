@@ -48,7 +48,7 @@ if (!firebase.apps.length) {
       },
 
       markOcupied(spotid, ocupier) {
-        let parkingRef = firebase.database().ref('ParkingSpaces').child(spaceUID);
+        let parkingRef = firebase.database().ref('ParkingSpaces').child(spotid);
         parkingRef.on('value', (fbdatasnap) => {
             //console.log(Object.values(fbdatasnap.val())[0]);
             let currdata = fbdatasnap.val();
