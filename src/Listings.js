@@ -5,6 +5,7 @@ import firebase from './firebaselogin.js'
 
 
 class Listings extends Component {
+    wait = 0;
     constructor(props) {
         super(props);
         this.state = {
@@ -88,7 +89,11 @@ class Listings extends Component {
                 spaces[i].time = distanceBetween.rows.elements.duration;
                 spaces[i].distance = distanceBetween.rows.elements.distance;*/
             }
+            this.wait = 1;
         });
+        while (!wait) {
+            console.log('waiting');
+        }
         /*this.allListings = [
             {
                 CurrentUser: "N/A",
