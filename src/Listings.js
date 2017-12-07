@@ -20,7 +20,7 @@ class Listings extends Component {
             <div >
                 <ReactList
                     itemRenderer={this.renderItem}
-                    type='uniform'
+                    type='simple'
                 />
             </div>
         );
@@ -44,43 +44,44 @@ class Listings extends Component {
 
 
     getSpaces() {
-        var spaces = firebase.database().ref("ParkingSpaces");
+        /*var spaces = firebase.database().ref("ParkingSpaces");
         console.log('refresh');
         spaces.on("value", (datamap) => {
-            this.state.allListings = {
-                ParkingSpaces: {
-                    LKSDFJLSKDF: {
-                        CurrentUser: "N/A",
-                        Address: "nowhereland",
-                        Description: "this goes to nowhere",
-                        Latitude: 0,
-                        Longitude: 0,
-                        Owner: "owner",
-                        Reivews: "reviews",
-                    },
-                    SDFJLSDKFJLD: {
-                        CurrentUser: "N/A",
-                        Address: "nowhereland2",
-                        Description: "this goes to nowhere also",
-                        Latitude: 0,
-                        Longitude: 0,
-                        Owner: "owner",
-                        Reivews: "reviews",
-                    }
-                }
-            };//Object.values(datamap.val());
+            this.state.allListings = Object.values(datamap.val());
             var i;
             for (i = 0; i < this.state.allListings.length; i++) {
                 console.log(this.state.allListings[i].address);
-                
-                /*var curLat, curLong;
+
+                var curLat, curLong;
                 toLat = spaces[i].latitude;
                 toLong = spaces[i].longitude;
                 var distanceBetween = distanceFrom(toLat, toLong);
                 spaces[i].time = distanceBetween.rows.elements.duration;
-                spaces[i].distance = distanceBetween.rows.elements.distance;*/
+                spaces[i].distance = distanceBetween.rows.elements.distance;
             }
-        });
+        });*/
+        this.state.allListings = {
+            ParkingSpaces: {
+                LKSDFJLSKDF: {
+                    CurrentUser: "N/A",
+                    Address: "nowhereland",
+                    Description: "this goes to nowhere",
+                    Latitude: 0,
+                    Longitude: 0,
+                    Owner: "owner",
+                    Reivews: "reviews",
+                },
+                SDFJLSDKFJLD: {
+                    CurrentUser: "N/A",
+                    Address: "nowhereland2",
+                    Description: "this goes to nowhere also",
+                    Latitude: 0,
+                    Longitude: 0,
+                    Owner: "owner",
+                    Reivews: "reviews",
+                }
+            }
+        };
     }
 
     sortAllListings() {

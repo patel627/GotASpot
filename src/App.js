@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Listings from './Listings';
 import logo from './logo.svg';
 import './App.css';
+import ReactList from 'react-list';
 
 class App extends Component {
   render() {
@@ -11,7 +12,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Got a Spot?</h1>
         </header>
-        <Listings/>
+        <Listings />
       </div>
     );
   }
