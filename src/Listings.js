@@ -85,7 +85,7 @@ class Listings extends Component {
     onListingClick(key) {
         console.log(key + " selected");
         this.accessedKey = key;
-        firebaseutil.getSpaceInfo(key, this.updateUser(data));
+        firebaseutil.getSpaceInfo(key, this.updateUser);
     }
 
     updateUser(data) {
