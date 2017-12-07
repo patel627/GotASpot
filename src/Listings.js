@@ -9,6 +9,7 @@ class Listings extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            currentUser: this.props.userName,
             currentLatitude: 0,
             currentLongitude: 0,
             allListings: [],
@@ -56,7 +57,7 @@ class Listings extends Component {
                 class="section-result"
                 jsaction="pane.resultSection.click;keydown:pane.resultSection.keydown;mouseover:pane.resultSection.in;mouseout:pane.resultSection.out;focus:pane.resultSection.focusin;blur:pane.resultSection.focusout"
                 jsan="t-kpvi_-9WUes,7.section-result,0.data-result-index,0.jstrack,0.ved,0.vet,0.role,0.tabindex,22.jsaction">
-                <div className="button" key={this.state.allListings[index].Key} onClick={() => {this.onListingClick(this.state.allListings[index].Key)}}>
+                <div className="button" key={this.state.allListings[index].Key} onClick={() => { this.onListingClick(this.state.allListings[index].Key) }}>
                     <div className="section-result-content">
                         <div className="section-result-text-content">
                             <div className="section-result-header">
@@ -82,8 +83,17 @@ class Listings extends Component {
 
     onListingClick(key) {
         console.log(key + " selected");
-        firebaseutil.markOcupied(key, this.props.userName);
+        firebaseutil.getSpaceInfo(key, this.updateUser(data));
     }
+
+    updateUser(data) {
+        if (data.CurrentUser === this.state.userName) {
+            firebaseutil.markOcupied(key, '');
+        } else {
+            firebaseutil.markOcupied(key, this.state.userName);
+        }
+    }
+
 
 
     refresh() {
