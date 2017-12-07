@@ -29,9 +29,11 @@ class Listings extends Component {
         console.log('parking space ' + index);
         return (
             <div className="button" >
-                <div>
-                    <div>{this.allListings[index].Address}</div>
-                    <div>{this.allListings[index].Description}</div>
+                <div className="section-result-content">
+                    <div className="section-result-text-content">
+                        <div className="section-result-header">{this.allListings[index].Address}</div>
+                        <div className="section-result-details">{this.allListings[index].Description}</div>
+                    </div>
                 </div>
                 <div className="section-divider section-divider-bottom-line">
                 </div>
