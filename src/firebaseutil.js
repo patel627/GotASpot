@@ -48,19 +48,19 @@ if (!firebase.apps.length) {
       },
 
       markOcupied(spotid, ocupier) {
-        firebase.database().ref('ParkingSpots').child(spotid)
-        .update({ CurrentUser: ocupier});
+        let updateref = firebase.database().ref('ParkingSpaces').child(spotid);
+        console.log(updateref);
+        updateref.update({"CurrentUser" : ocupier});
       },
+
     
       addEntryCB(user_hash, address, desc, lat, long, owner, reviews, exists) {
         console.log(exists);
         if (exists === false) return;
         
         var postsRef = firebase.database().ref("ParkingSpaces");
-
-        
         var newPostRef = postsRef.push().set({
-          CurrentUser: "N/A",
+          CurrentUser: "",
           Address: address,
           Description: desc,
           Latitude: lat,
@@ -71,7 +71,8 @@ if (!firebase.apps.length) {
       },
   }
 
-  //module.exports.addSpot("userid1", "address", "parking spot on the street next to...", 4, 5, "john doe", ["good", "bad"]);
-  //module.exports.addSpot("userid1", "address", "parking spot on the street next to...", 4, 5, "john doe", ["good", "bad"]);
-  //module.exports.addSpot("userid1", "address", "parking spot on the street next to...", 4, 5, "john doe", ["good", "bad"]);
-  module.exports.getSpaceInfo('f', function(data) { console.log(data);});
+  //module.exports.addSpot("userid1", "123 State Street", "Next to tree", 4, 5, "john doe", ["good", "bad"]);
+  ///module.exports.addSpot("userid1", "456 Third Street", "Across from Windsor", 4, 5, "john doe", ["good", "bad"]);
+  ///module.exports.addSpot("userid1", "789 First Street", "Next to something", 4, 5, "john doe", ["good", "bad"]);
+  //module.exports.getSpaceInfo('f', function(data) {    console.log(data); });
+  //module.exports.markOcupied("-L-kHHfNQxSkLTRKWe-C", "ocupier");

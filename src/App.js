@@ -107,7 +107,7 @@ class App extends Component {
             {this.state.user ? <button onClick={this.logout}>Logout</button> : <button onClick={this.login}>Log In</button>}
           </div>
         </header>
-       {this.state.user?<Listings userName={this.state.user.displayName} />: <p>Not logged in</p> } 
+       {this.state.user?<Listings userName={this.state.user.displayName}/>: <p>Not logged in</p> } 
       </div>
     );
   }
