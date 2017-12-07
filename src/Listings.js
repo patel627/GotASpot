@@ -63,6 +63,7 @@ class Listings extends Component {
     getSpaces() {
         var spaces = firebase.database().ref('ParkingSpaces');
         console.log('refresh');
+        this.allListings = [];
         spaces.on("value", (datamap) => {
             var i;
             for (var key in datamap.val()) {
@@ -72,8 +73,8 @@ class Listings extends Component {
                 };
                 this.allListings.push(spotVal);
                 console.log(key);
-                console.log(datamap.val()[key].Address);
-                console.log(datamap.val()[key].Description);
+                console.log(spotVal.Address);
+                console.log(spotVal.Description);
 
                 /*var curLat, curLong;
                 toLat = spaces[i].latitude;
