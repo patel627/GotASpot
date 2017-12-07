@@ -96,8 +96,8 @@ class Listings extends Component {
                 Longitude: 0,
                 Owner: "owner",
                 Reivews: "reviews",
-            }*/
-        ];
+            }
+        ];*/
         var i;
         for (i = 0; i < this.allListings.length; i++) {
             console.log(this.allListings[i].Address);
