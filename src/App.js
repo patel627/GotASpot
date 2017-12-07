@@ -97,9 +97,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="wrapper">
-          <h1> Got a Spot?</h1>
-          {this.state.user ? <button onClick={this.logout}>Logout</button>: <button onClick={this.logout}>Logout</button>}
+        <header>
+          <div className="wrapper">
+            <h1> Got a Spot?</h1>
+            {this.state.user ? <button onClick={this.logout}>Logout</button> : <button onClick={this.logout}>Logout</button>}
+          </div>
         </header>
         <Listings />
       </div>
