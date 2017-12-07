@@ -21,7 +21,7 @@ class Listings extends Component {
         var ulist = [];
         var i;
         for (i = 0; i < this.allListings.length; i++) {
-            ulist.pushthis.renderItem(i, 'Spot').toString();
+            ulist.push(this.renderItem(i, 'Spot'));
         }
         return ulist;
     }
