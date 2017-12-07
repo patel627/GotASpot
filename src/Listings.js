@@ -28,10 +28,10 @@ class Listings extends Component {
     renderItem(index, key) {
         console.log('parking space ' + index);
         return (
-            <div className="button">
-                <div key={key}>
-                    <div>{this.allListings[index].Address}</div>
-                    <div>{this.allListings[index].Description}</div>
+            <div className="button" style="section-result">
+                <div style="secion-result-content">
+                    <div style="section-result-header">{this.allListings[index].Address}</div>
+                    <div style="section-result-details">{this.allListings[index].Description}</div>
                 </div>
                 <div className="section-divider section-divider-bottom-line">
                 </div>
