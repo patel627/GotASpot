@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  /*
   constructor() {
     super();
     this.state = {
@@ -79,7 +80,7 @@ class App extends Component {
 
   removeItem(spaceId) {
     firebase.database().ref(`/ParkingSpaces/${spaceId}`).remove();
-  }
+  }*/
 
   render() {
     return (
