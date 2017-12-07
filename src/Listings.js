@@ -13,6 +13,7 @@ class Listings extends Component {
             allListings: []
         };
         this.refresh();
+        console.log("it reached here");
     }
 
     render() {
@@ -39,6 +40,7 @@ class Listings extends Component {
 
 
     refresh() {
+        console.log("refreshing");
         this.getSpaces();
     }
 
