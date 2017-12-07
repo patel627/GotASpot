@@ -18,7 +18,7 @@ class Listings extends Component {
     }
 
     render() {
-
+        console.log('number of spaces ' + this.allListings.length);
         var i;
         for (i = 0; i < this.allListings.length; i++) {
             console.log(this.allListings[i].Address);
