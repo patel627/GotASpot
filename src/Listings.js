@@ -20,7 +20,7 @@ class Listings extends Component {
         var ulist = [];
         var i;
         for (i = 0; i < this.allListings.length; i++) {
-            ulist.push(this.renderItem(i, 'Spot'));
+            ulist.push(this.renderItem(i, 'listing' + i));
         }
         return ulist;
     }
