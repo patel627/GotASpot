@@ -3,14 +3,13 @@ import React, { Component } from 'react';
 import ReactList from 'react-list';
 //import { Listing } from './Listing';
 const firebase = require("./firebaselogin.js");
-
 class Listings extends Component {
+    allListings = [];
     constructor(props) {
         super(props);
         this.state = {
             currentLatitude: 0,
             currentLongitude: 0,
-            allListings: []
         };
 
         console.log("it reached here");
@@ -34,8 +33,8 @@ class Listings extends Component {
         return (
             <div key={key}>
                 <text>hi</text>
-                <text>{this.state.allListings[index].Address}</text>
-                <text>{this.state.allListings[index].Description}</text>
+                <text>{this.allListings[index].Address}</text>
+                <text>{this.allListings[index].Description}</text>
             </div>
         );
     }
@@ -64,27 +63,25 @@ class Listings extends Component {
                 spaces[i].distance = distanceBetween.rows.elements.distance;
             }
         });*/
-        this.setState({
-            allListings: [
-                {
-                    CurrentUser: "N/A",
-                    Address: "nowhereland",
-                    Description: "this goes to nowhere",
-                    Latitude: 0,
-                    Longitude: 0,
-                    Owner: "owner",
-                    Reivews: "reviews",
-                }, {
-                    CurrentUser: "N/A",
-                    Address: "nowhereland2",
-                    Description: "this goes to nowhere also",
-                    Latitude: 0,
-                    Longitude: 0,
-                    Owner: "owner",
-                    Reivews: "reviews",
-                }
-            ]
-        })
+        this.allListings = [
+            {
+                CurrentUser: "N/A",
+                Address: "nowhereland",
+                Description: "this goes to nowhere",
+                Latitude: 0,
+                Longitude: 0,
+                Owner: "owner",
+                Reivews: "reviews",
+            }, {
+                CurrentUser: "N/A",
+                Address: "nowhereland2",
+                Description: "this goes to nowhere also",
+                Latitude: 0,
+                Longitude: 0,
+                Owner: "owner",
+                Reivews: "reviews",
+            }
+        ];
     }
 
     sortAllListings() {
