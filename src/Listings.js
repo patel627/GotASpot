@@ -82,6 +82,10 @@ class Listings extends Component {
                 Reivews: "reviews",
             }
         ];
+        var i;
+        for (i = 0; i < this.allListings.length; i++) {
+            console.log(this.allListings[i].Address);
+        }
         console.log("has spaces");
     }
 
