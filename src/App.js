@@ -56,6 +56,9 @@ class App extends Component {
       username: '',
       description: ''
     });
+
+    this.refresh();
+    this.forceUpdate();
   }
 
   componentDidMount() {
