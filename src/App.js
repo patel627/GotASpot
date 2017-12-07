@@ -20,7 +20,7 @@ class App extends Component {
     }
 
     this.handleChange = this.handleChange.bind(this);
-    this.hangleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
 
