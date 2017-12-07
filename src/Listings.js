@@ -23,8 +23,8 @@ class Listings extends Component {
         console.log('refresh');
         //this.state.allListings = [];
         var readData = []
-        this.setState({loading:true});
-        spaces.once("value").then( (datamap) => {
+        this.setState({ loading: true });
+        spaces.once("value").then((datamap) => {
             for (let key in datamap.val()) {
                 console.log('current spaces ' + readData.push({
                     Address: datamap.val()[key].Address,
@@ -71,7 +71,7 @@ class Listings extends Component {
 
         console.log('parking space ' + index);
         return (
-            <div className="button" >
+            <div className="button">
                 <div className="section-result-content">
                     <div className="section-result-text-content">
                         <div className="section-result-header">
@@ -84,6 +84,10 @@ class Listings extends Component {
                         <div className="section-result-details-container">
                             <div className="section-result-details">
                                 {this.state.allListings[index].Description}
+                            </div>
+                            <div className="section-result-separator">.</div>
+                            <div className="section-result-details">
+                                {this.state.allListings[index].CurrentUser}
                             </div>
                         </div>
                     </div>
@@ -109,10 +113,14 @@ class Listings extends Component {
             var i;
             var newState = [];
             for (var key in datamap.val()) {
-                console.log('current spaces ' + newState.push({
-                    Address: datamap.val()[key].Address,
-                    Description: datamap.val()[key].Description
-                }));
+                    console.log('current spaces ' + newState.push(
+                        {
+                            Address: datamap.val()[key].Address,
+                            Description: datamap.val()[key].Description,
+                            Key: key,
+                            CurrentUser: datamap.val()[key].CurrentUser
+                        }
+                    ));
                 /*console.log(key);
                 console.log(spotVal.Address);
                 console.log(spotVal.Description);*/
@@ -124,7 +132,7 @@ class Listings extends Component {
                 spaces[i].time = distanceBetween.rows.elements.duration;
                 spaces[i].distance = distanceBetween.rows.elements.distance;*/
             }
-            this.setState( {
+            this.setState({
                 allListings: newState
             });
         });
