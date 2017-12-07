@@ -116,7 +116,8 @@ class App extends Component {
               <form onSubmit={this.handleSubmit}>
                 <input type="text" name="description" placeholder="Parking Spot Description" onChange={this.handleChange} value={this.state.description} />
                 <input type="text" name="address" placeholder="Address of Spot" onChange={this.handleChange} value={this.state.address} />
-                <button>Add Spot</button>
+                {this.state.user ? <button>Add Spot</button> : <p>Not logged in</p>}
+                
               </form>
             </section>
           </div>
