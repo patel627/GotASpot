@@ -31,8 +31,18 @@ class Listings extends Component {
             <div className="button" >
                 <div className="section-result-content">
                     <div className="section-result-text-content">
-                        <div className="section-result-header">{this.allListings[index].Address}</div>
-                        <div className="section-result-details">{this.allListings[index].Description}</div>
+                        <div className="section-result-header">
+                            <div className="section-result-title-container">
+                                <h3 className="section-result-title">
+                                    {this.allListings[index].Address}
+                                </h3>
+                            </div>
+                        </div>
+                        <div className="section-result-details-container">
+                            <div className="section-result-details">
+                                {this.allListings[index].Description}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="section-divider section-divider-bottom-line">
