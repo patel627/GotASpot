@@ -48,6 +48,7 @@ if (!firebase.apps.length) {
       },
 
       markOcupied(spotid, ocupier, userid) {
+        console.log("UDERID: " + userid);
         if (userid === "OPEN")
           firebase.database().ref('ParkingSpaces').child(spotid).update({"CurrentUser" : ocupier});
         else
