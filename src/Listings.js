@@ -73,7 +73,7 @@ class Listings extends Component {
         spaces.on("value", (datamap) => {
             var i;
             for (var key in datamap.val()) {
-                console.log('current spaces ' + this.allListings.push({
+                console.log('current spaces ' + this.state.allListings.push({
                     Address: datamap.val()[key].Address,
                     Description: datamap.val()[key].Description
                 }));
