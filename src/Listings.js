@@ -64,7 +64,7 @@ class Listings extends Component {
                 spaces[i].distance = distanceBetween.rows.elements.distance;
             }
         });*/
-        this.state.setState({
+        this.setState({
             allListings: [
                 {
                     CurrentUser: "N/A",
