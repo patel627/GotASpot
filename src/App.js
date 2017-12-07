@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Listings from './Listings';
 import logo from './logo.svg';
 import './App.css';
-import firebase, {auth, provider} from './firebaselogin.js'
+import firebase, { auth, provider } from './firebaselogin.js'
 var firebaseutil = require('./firebaseutil.js');
 
 
@@ -107,7 +107,16 @@ class App extends Component {
             {this.state.user ? <button onClick={this.logout}>Logout</button> : <button onClick={this.login}>Log In</button>}
           </div>
         </header>
-       {this.state.user?<Listings userName={this.state.user.displayName}/>: <p>Not logged in</p> } 
+
+        <section className='add-item'>
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange} value={this.state.user.displayName || this.state.user.email} />
+            <input type="text" name="description" placeholder="Parking Spot Description" onChange={this.handleChange} value={this.state.description} />
+            <input type="text" name="address" placeholder="Address of Spot" onChange={this.handleChange} value={this.state.address} />
+            <button>Add Spot</button>
+          </form>
+        </section>
+        {this.state.user ? <Listings userName={this.state.user.displayName} /> : <p>Not logged in</p>}
       </div>
     );
   }
