@@ -58,7 +58,7 @@ class Listings extends Component {
                 class="section-result"
                 jsaction="pane.resultSection.click;keydown:pane.resultSection.keydown;mouseover:pane.resultSection.in;mouseout:pane.resultSection.out;focus:pane.resultSection.focusin;blur:pane.resultSection.focusout"
                 jsan="t-kpvi_-9WUes,7.section-result,0.data-result-index,0.jstrack,0.ved,0.vet,0.role,0.tabindex,22.jsaction">
-                <div className="button" key={this.state.allListings[index].Key} onClick={() => { this.onListingClick(this.state.allListings[index].Key) }}>
+                <div className="button" key={this.state.allListings[index].Key} onClick={() => { this.onListingClick(this.state.allListings[index].Key, this.state.allListings[index].CurrentUser) }}>
                     <div className="section-result-content">
                         <div className="section-result-text-content">
                             <div className="section-result-header">
@@ -83,10 +83,10 @@ class Listings extends Component {
     }
 
     accessedKey;
-    onListingClick(key) {
+    onListingClick(key, currentUser) {
         console.log(key + " selected");
         this.accessedKey = key;
-        firebaseutil.markOcupied(this.accessedKey, this.state.currentUser, this.state.allListings[key].CurrentUser);
+        firebaseutil.markOcupied(this.accessedKey, this.state.currentUser, currentUser);
         //this.refresh();
         this.forceUpdate();
     }

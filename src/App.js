@@ -109,16 +109,17 @@ class App extends Component {
         </header>
 
         <div>
-        <div className='container'>
-          <section className='add-item'>
-            <form onSubmit={this.handleSubmit}>
-              <input type="text" name="description" placeholder="Parking Spot Description" onChange={this.handleChange} value={this.state.description} />
-              <input type="text" name="address" placeholder="Address of Spot" onChange={this.handleChange} value={this.state.address} />
-              <button>Add Spot</button>
-            </form>
-          </section>
+          <div className='container'>
+            <section className='add-item'>
+              <form onSubmit={this.handleSubmit}>
+                <input type="text" name="description" placeholder="Parking Spot Description" onChange={this.handleChange} value={this.state.description} />
+                <input type="text" name="address" placeholder="Address of Spot" onChange={this.handleChange} value={this.state.address} />
+                <button>Add Spot</button>
+              </form>
+            </section>
+          </div>
         </div>
-      </div>
+        <div className="section-result-seperator">_</div>
         {this.state.user ? <Listings userName={this.state.user.displayName} /> : <p>Not logged in</p>}
       </div>
     );
