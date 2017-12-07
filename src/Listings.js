@@ -85,7 +85,7 @@ class Listings extends Component {
                             <div className="section-result-details">
                                 {this.state.allListings[index].Description}
                             </div>
-                            <div className="section-result-separator">.</div>
+                            <span className="section-result-separator">.</span>
                             <div className="section-result-details">
                                 {this.state.allListings[index].CurrentUser}
                             </div>
