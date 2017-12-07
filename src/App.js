@@ -103,7 +103,7 @@ class App extends Component {
         <header>
           <div className="wrapper">
             <h1> Got a Spot?</h1>
-            {this.state.user ? <button onClick={this.logout}>Logout</button> : <button onClick={this.in}>Log In</button>}
+            {this.state.user ? <button onClick={this.logout}>Logout</button> : <button onClick={this.login}>Log In</button>}
           </div>
         </header>
        {this.state.user?<Listings />: <p>Not logged in</p> } 
