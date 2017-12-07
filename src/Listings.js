@@ -18,15 +18,12 @@ class Listings extends Component {
 
     render() {
         console.log("rendering");
-        return (
-            <div >
-                <ReactList
-                    itemRenderer={this.renderItem}
-                    type='uniform'
-                />
-                <div>hello</div>
-            </div>
-        );
+        var ulist = '';
+        var i;
+        for (i = 0; i < this.allListings.length; i++) {
+            ulist = ulist + renderItem(i, 'Spot');
+        }
+        return ulist;
     }
 
     renderItem(index, key) {
